@@ -1,10 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Navbar from './components/Navbarone';
+import Sidebar from './components/Sidebar';
+import Navbarone from './components/Navbarone';
 
 function App() {
   return (
-    <Navbar/>
+    <>
+    <Navbarone/>
+    <Sidebar/>
+    </>
+    
    
   );
 }
