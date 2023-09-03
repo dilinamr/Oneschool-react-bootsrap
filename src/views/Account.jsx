@@ -1,4 +1,5 @@
+import Main from "../layouts/Main";
 const Account = () => {
-    return(<p>Account</p>);
+    return(<><Main/></>);
 };
 export default Account;

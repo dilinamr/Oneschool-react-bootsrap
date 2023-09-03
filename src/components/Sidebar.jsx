@@ -6,9 +6,9 @@ const Sidebar = ()=>{
 <div className="sidebar">
 <Nav defaultActiveKey="/" className="flex-column">
             <Nav.Link href="/"><FontAwesomeIcon icon={faHouse} /><span className="d-none d-md-inline">Dashboard</span></Nav.Link>
-            <Nav.Link href="/students"> <FontAwesomeIcon icon={faUserGraduate} /><span className="d-none d-md-inline">Students</span></Nav.Link>
+            <Nav.Link href="/student"> <FontAwesomeIcon icon={faUserGraduate} /><span className="d-none d-md-inline">Students</span></Nav.Link>
             <Nav.Link href="/staff"><FontAwesomeIcon icon={faUser} /><span className="d-none d-md-inline">Staff</span></Nav.Link>
-            <Nav.Link href="/accounts"><FontAwesomeIcon icon={faSackDollar} /><span className="d-none d-md-inline">Accounts</span></Nav.Link>
+            <Nav.Link href="/account"><FontAwesomeIcon icon={faSackDollar} /><span className="d-none d-md-inline">Accounts</span></Nav.Link>
             <Nav.Link href="library"><FontAwesomeIcon icon={faBookOpen} /><span className="d-none d-md-inline">Library</span></Nav.Link>
 
           </Nav>

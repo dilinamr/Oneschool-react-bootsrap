@@ -1,4 +1,8 @@
-const Library = () => {
-    return(<div>Library</div>);
+import Main from "../layouts/Main";
+
+const Library = () =>{
+    return(<>
+    <Main/>
+    </>);
 };
 export default Library;

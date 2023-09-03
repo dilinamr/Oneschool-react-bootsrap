@@ -1,4 +1,7 @@
+import Main from "../layouts/Main";
 const Student = () => {
-    return(<p>Student</p>);
+    return(<>
+    <Main/>
+    </>);
 };
 export default Student;

@@ -1,4 +1,8 @@
+import Main from "../layouts/Main";
+
 const Staff = () => {
-    return(<p>Staff</p>);
+    return(<>
+    <Main/>
+    </>);
 };
 export default Staff;
