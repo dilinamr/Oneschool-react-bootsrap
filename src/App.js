@@ -1,13 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Sidebar from './components/Sidebar';
-import Navbarone from './components/Navbarone';
-
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 function App() {
   return (
     <>
-    <Navbarone/>
-    <Sidebar/>
+    
+    <RouterProvider router={router}/>
     </>
     
    
