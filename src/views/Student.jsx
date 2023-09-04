@@ -28,7 +28,9 @@ setTimeout(() => {
         </tr>
       </thead>
       <tbody>
-        {student.map((student,key)=>(
+      {student.length===0?(<tr className="text-center"><td colSpan="8">NO RECORDS FOUND</td></tr>):
+
+        (student.map((student,key)=>(
         <tr key={key}>
           <td>{key+1}</td>
           <td>{student.firstname}</td>
@@ -40,8 +42,7 @@ setTimeout(() => {
           <td>{student.skill}</td>
           
         </tr>
-        ))}
-        {student.length===0?(<tr className="text-center"><td colSpan="8">NO RECORDS FOUND</td></tr>):null}
+        )))}
       </tbody>
     </Table>
     </Col>
