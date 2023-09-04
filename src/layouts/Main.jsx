@@ -1,12 +1,12 @@
 import Navbarone from "../components/Navbarone";
 import Sidebar from "../components/Sidebar";
-const Main = (props) => {
+const Main = ({children}) => {
     return (<>
-    {console.log(props)}
+   
     <Navbarone/>
     <div className="d-flex">
     <Sidebar/>
-    <div className="container-fluid">{props.children}</div>
+    <div className="container-fluid">{children}</div>
     </div>
     
     </>)
