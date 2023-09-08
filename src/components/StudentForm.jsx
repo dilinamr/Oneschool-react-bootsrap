@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+
 function StudentForm() {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
@@ -87,21 +88,49 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="gender" className='mb-3'>
-              <Form.Label>Gender</Form.Label>
-              <Form.Control
-                as="select"
-                name="gender"
-                value={formData.gender}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </Form.Control>
-            </Form.Group>
+            
+
+<Form.Group controlId="gender" className='mb-3'>
+  <Form.Label>Gender</Form.Label>
+  <div>
+    <div className='d-inline-block mr'>
+    <Form.Check
+      type="radio"
+      label="Male"
+      name="gender"
+      value="male"
+      checked={formData.gender === 'male'}
+      onChange={handleInputChange}
+      required
+     />
+     </div>
+     <div className='d-inline-block mr'>
+    <Form.Check 
+      type="radio"
+      label="Female"
+      name="gender"
+      value="female"
+      checked={formData.gender === 'female'}
+      onChange={handleInputChange}
+      required
+    />
+    </div>
+    <div className='d-inline-block mr'>
+    <Form.Check
+      type="radio"
+      label="Other"
+      name="gender"
+      value="other"
+      checked={formData.gender === 'other'}
+      onChange={handleInputChange}
+      required
+    />
+    </div>     
+  </div>
+</Form.Group>
+
+
+
             <Form.Group controlId="religion" className='mb-3'>
               <Form.Label>Religion</Form.Label>
               <Form.Control
