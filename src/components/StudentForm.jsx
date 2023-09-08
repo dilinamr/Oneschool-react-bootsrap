@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 function StudentForm() {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
-    admissionNumber: '',
-    dateOfAdmission: '',
-    firstName: '',
-    lastName: '',
-    gender: '',
-    religion: '',
-    email: '',
-    address: '',
-    phone: '',
+    admissionNumber: "",
+    dateOfAdmission: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    religion: "",
+    email: "",
+    address: "",
+    phone: "",
   });
 
   const handleClose = () => setShow(false);
@@ -35,7 +34,7 @@ function StudentForm() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} >
+      <Button variant="primary" onClick={handleShow}>
         Add Student
       </Button>
 
@@ -45,7 +44,7 @@ function StudentForm() {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="admissionNumber" className='mb-3'>
+            <Form.Group controlId="admissionNumber" className="mb-3">
               <Form.Label>Admission Number</Form.Label>
               <Form.Control
                 type="text"
@@ -56,7 +55,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="dateOfAdmission" className='mb-3'>
+            <Form.Group controlId="dateOfAdmission" className="mb-3">
               <Form.Label>Date of Admission</Form.Label>
               <Form.Control
                 type="date"
@@ -66,7 +65,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="firstName" className='mb-3'>
+            <Form.Group controlId="firstName" className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
@@ -77,7 +76,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="lastName" className='mb-3'>
+            <Form.Group controlId="lastName" className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
@@ -88,50 +87,45 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            
-
-<Form.Group controlId="gender" className='mb-3'>
-  <Form.Label>Gender</Form.Label>
-  <div>
-    <div className='d-inline-block mr'>
-    <Form.Check
-      type="radio"
-      label="Male"
-      name="gender"
-      value="male"
-      checked={formData.gender === 'male'}
-      onChange={handleInputChange}
-      required
-     />
-     </div>
-     <div className='d-inline-block mr'>
-    <Form.Check 
-      type="radio"
-      label="Female"
-      name="gender"
-      value="female"
-      checked={formData.gender === 'female'}
-      onChange={handleInputChange}
-      required
-    />
-    </div>
-    <div className='d-inline-block mr'>
-    <Form.Check
-      type="radio"
-      label="Other"
-      name="gender"
-      value="other"
-      checked={formData.gender === 'other'}
-      onChange={handleInputChange}
-      required
-    />
-    </div>     
-  </div>
-</Form.Group>
-
-
-
-            <Form.Group controlId="religion" className='mb-3'>
+            <Form.Group controlId="gender" className="mb-3">
+              <Form.Label>Gender</Form.Label>
+              <div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="radio"
+                    label="Male"
+                    name="gender"
+                    value="male"
+                    checked={formData.gender === "male"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="radio"
+                    label="Female"
+                    name="gender"
+                    value="female"
+                    checked={formData.gender === "female"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="radio"
+                    label="Other"
+                    name="gender"
+                    value="other"
+                    checked={formData.gender === "other"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+            </Form.Group>
+            <Form.Group controlId="religion" className="mb-3">
               <Form.Label>Religion</Form.Label>
               <Form.Control
                 type="text"
@@ -142,8 +136,18 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            
-            <Button variant="primary" type="submit" className='float-end'>
+            <Form.Group controlId="address" className="mb-3">
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                as="textarea"
+                placeholder="Enter address"
+                name="address"
+                value={formData.address}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="float-end">
               Submit
             </Button>
           </Form>
