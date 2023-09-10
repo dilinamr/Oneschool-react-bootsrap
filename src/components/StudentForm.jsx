@@ -27,7 +27,7 @@ function StudentForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you can handle form submission, e.g., send data to an API or perform validation.
+    // Here, you can handle form submission, send data to an API or perform validation.
     console.log(formData);
     handleClose();
   };
@@ -55,6 +55,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="dateOfAdmission" className="mb-3">
               <Form.Label>Date of Admission</Form.Label>
               <Form.Control
@@ -65,6 +66,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="firstName" className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -76,6 +78,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="lastName" className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -87,6 +90,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
+            {/* gender */}
             <Form.Group controlId="gender" className="mb-3">
               <Form.Label>Gender</Form.Label>
               <div>
