@@ -26,8 +26,11 @@ const Student = () => {
             <div className="mb-3 float-end">
               <StudentForm />
             </div>
-
-            <Table striped bordered hover>
+            </Col>
+        </Row>
+        <Row className="table">
+          <Col>
+            <Table striped bordered hover responsive>
               <thead>
                 <tr>
                   <th>Sl.no.</th>

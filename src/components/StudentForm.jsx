@@ -15,8 +15,15 @@ function StudentForm() {
     email: "",
     address: "",
     phone: "",
+    educationLevel: "",
   });
-
+const [educations] = useState([
+  {id:1,name:"SSLC"},
+  { id : 2 , name :"PLUS TWO" },
+  {id : 3 , name :"DIPLOMA"},
+  {id : 4 , name :"DEGREE"}
+  
+])
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -31,7 +38,21 @@ function StudentForm() {
     console.log(formData);
     handleClose();
   };
-
+  const handleReset = () => {
+    // Reset the form data state to its initial values
+    setFormData({
+      admissionNumber: null,
+      dateOfAdmission: null,
+      firstName: null,
+      lastName: null,
+      gender: null,
+      religion: null,
+      email: null,
+      address: null,
+      phone: null,
+      educationLevel: null,
+    });
+  };
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -129,6 +150,22 @@ function StudentForm() {
                 </div>
               </div>
             </Form.Group>
+            <Form.Group controlId="educationLevel" className="mb-3">
+              <Form.Label>Education Level</Form.Label>
+              <Form.Select
+               
+                name="educationLevel"
+                value={formData.educationLevel}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Select Education Level</option>
+               {educations.map((education)=><option value={education.id}>{education.name}</option>)}
+                
+                
+              </Form.Select>
+            </Form.Group>
+
             <Form.Group controlId="religion" className="mb-3">
               <Form.Label>Religion</Form.Label>
               <Form.Control
@@ -140,6 +177,7 @@ function StudentForm() {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="address" className="mb-3">
               <Form.Label>Address</Form.Label>
               <Form.Control
@@ -151,9 +189,14 @@ function StudentForm() {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="float-end">
+            <div className="float-end">
+            <Button variant="secondary" type="reset" className="mr" onClick={handleReset}>
+              Reset
+            </Button>
+            <Button variant="primary" type="submit" >
               Submit
             </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>
