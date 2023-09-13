@@ -6,25 +6,24 @@ import Modal from "react-bootstrap/Modal";
 function StudentForm() {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
-    admissionNumber: null,
-    dateOfAdmission: null,
-    firstName: null,
-    lastName: null,
-    gender: null,
-    religion: null,
-    email: null,
-    address: null,
-    phone: null,
-    educationLevel: null,
-    skills:[],
+    admissionNumber: "",
+    dateOfAdmission: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    religion: "",
+    email: "",
+    address: "",
+    phone: "",
+    educationLevel: "",
+    skills: [],
   });
-const [educations] = useState([
-  {id:1,name:"SSLC"},
-  { id : 2 , name :"PLUS TWO" },
-  {id : 3 , name :"DIPLOMA"},
-  {id : 4 , name :"DEGREE"}
-  
-])
+  const [educations] = useState([
+    { id: 1, name: "SSLC" },
+    { id: 2, name: "PLUS TWO" },
+    { id: 3, name: "DIPLOMA" },
+    { id: 4, name: "DEGREE" },
+  ]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -35,7 +34,7 @@ const [educations] = useState([
   // };
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-  
+
     if (type === "checkbox") {
       // Handle checkbox inputs
       if (checked) {
@@ -65,17 +64,17 @@ const [educations] = useState([
   const handleReset = () => {
     // Reset the form data state to its initial values
     setFormData({
-      admissionNumber: null,
-      dateOfAdmission: null,
-      firstName: null,
-      lastName: null,
-      gender: null,
-      religion: null,
-      email: null,
-      address: null,
-      phone: null,
-      educationLevel: null,
-      skills:[],
+      admissionNumber: "",
+      dateOfAdmission: "",
+      firstName: "",
+      lastName: "",
+      gender: "",
+      religion: "",
+      email: "",
+      address: "",
+      phone: "",
+      educationLevel: "",
+      skills: "",
     });
   };
   return (
@@ -90,8 +89,7 @@ const [educations] = useState([
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-
-{/* ADDMISION NUMBER */}
+            {/* ADDMISION NUMBER */}
 
             <Form.Group controlId="admissionNumber" className="mb-3">
               <Form.Label>Admission Number</Form.Label>
@@ -104,7 +102,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-{/* DATE OF ADMISSION */}
+            {/* DATE OF ADMISSION */}
             <Form.Group controlId="dateOfAdmission" className="mb-3">
               <Form.Label>Date of Admission</Form.Label>
               <Form.Control
@@ -115,7 +113,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-{/* FRIST NAME */}
+            {/* FRIST NAME */}
             <Form.Group controlId="firstName" className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -127,7 +125,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-{/* LAST NAME */}
+            {/* LAST NAME */}
             <Form.Group controlId="lastName" className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -164,7 +162,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-  {/* GENDER */}
+            {/* GENDER */}
             <Form.Group controlId="gender" className="mb-3">
               <Form.Label>Gender</Form.Label>
               <div>
@@ -207,19 +205,20 @@ const [educations] = useState([
             <Form.Group controlId="educationLevel" className="mb-3">
               <Form.Label>Education Level</Form.Label>
               <Form.Select
-               
                 name="educationLevel"
                 value={formData.educationLevel}
                 onChange={handleInputChange}
                 required
               >
                 <option value="">Select Education Level</option>
-               {educations.map((education)=><option value={education.id} key={education.id}>{education.name}</option>)}
-                
-                
+                {educations.map((education) => (
+                  <option value={education.id} key={education.id}>
+                    {education.name}
+                  </option>
+                ))}
               </Form.Select>
             </Form.Group>
-{/* RELIGION */}
+            {/* RELIGION */}
             <Form.Group controlId="religion" className="mb-3">
               <Form.Label>Religion</Form.Label>
               <Form.Control
@@ -231,8 +230,8 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-{/* SKILLS */}
-<Form.Group controlId="skills" className="mb-3">
+            {/* SKILLS */}
+            <Form.Group controlId="skills" className="mb-3">
               <Form.Label>Skills</Form.Label>
               <div>
                 <div className="d-inline-block mr">
@@ -278,11 +277,12 @@ const [educations] = useState([
               </div>
             </Form.Group>
 
-{/* ADDRESS */}
+            {/* ADDRESS */}
             <Form.Group controlId="address" className="mb-3">
               <Form.Label>Address</Form.Label>
               <Form.Control
-                as="textarea" rows={3}
+                as="textarea"
+                rows={3}
                 placeholder="Enter address"
                 name="address"
                 value={formData.address}
@@ -293,12 +293,17 @@ const [educations] = useState([
 
             {/* SUBMIT & RESET */}
             <div className="float-end">
-            <Button variant="secondary" type="reset" className="mr" onClick={handleReset}>
-              Reset
-            </Button>
-            <Button variant="primary" type="submit" >
-              Submit
-            </Button>
+              <Button
+                variant="secondary"
+                type="reset"
+                className="mr"
+                onClick={handleReset}
+              >
+                Reset
+              </Button>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
             </div>
           </Form>
         </Modal.Body>
