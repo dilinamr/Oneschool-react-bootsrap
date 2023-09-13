@@ -4,11 +4,11 @@ import { Row, Table, Col } from "react-bootstrap";
 import StudentForm from "../components/StudentForm";
 const Student = () => {
   const [student, setStudents] = useState([]);
-  setTimeout(() => {
-      setStudents([{firstname:"dilin",lastname:"am",mobile:"98954123",email:"dilin@gmail.com",city:"clt",degree:"yes",skill:["html","css","react"]},
-      {firstname:"bibin",lastname:"das",mobile:"98954123",email:"dilin@gmail.com",city:"knr",skill:["js","html"],degree:"yes"}
-  ])
-  }, 2000);
+  // setTimeout(() => {
+  //     setStudents([{firstname:"dilin",lastname:"am",mobile:"98954123",email:"dilin@gmail.com",city:"clt",degree:"yes",skill:["html","css","react"]},
+  //     {firstname:"bibin",lastname:"das",mobile:"98954123",email:"dilin@gmail.com",city:"knr",skill:["js","html"],degree:"yes"}
+  // ])
+  // }, 12000);
 
   // useEffect(() => {
   //   fetch("http://localhost:30005/student")

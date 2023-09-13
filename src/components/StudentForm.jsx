@@ -6,16 +6,17 @@ import Modal from "react-bootstrap/Modal";
 function StudentForm() {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
-    admissionNumber: "",
-    dateOfAdmission: "",
-    firstName: "",
-    lastName: "",
-    gender: "",
-    religion: "",
-    email: "",
-    address: "",
-    phone: "",
-    educationLevel: "",
+    admissionNumber: null,
+    dateOfAdmission: null,
+    firstName: null,
+    lastName: null,
+    gender: null,
+    religion: null,
+    email: null,
+    address: null,
+    phone: null,
+    educationLevel: null,
+    skills:[],
   });
 const [educations] = useState([
   {id:1,name:"SSLC"},
@@ -27,11 +28,34 @@ const [educations] = useState([
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  //   console.log(e.target.value)
+  // };
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+  
+    if (type === "checkbox") {
+      // Handle checkbox inputs
+      if (checked) {
+        // If the checkbox is checked, add the value to the skills array
+        setFormData((prevData) => ({
+          ...prevData,
+          skills: [...prevData.skills, value],
+        }));
+      } else {
+        // If the checkbox is unchecked, remove the value from the skills array
+        setFormData((prevData) => ({
+          ...prevData,
+          skills: prevData.skills.filter((skill) => skill !== value),
+        }));
+      }
+    } else {
+      // Handle other input types
+      setFormData({ ...formData, [name]: value });
+    }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here, you can handle form submission, send data to an API or perform validation.
@@ -51,6 +75,7 @@ const [educations] = useState([
       address: null,
       phone: null,
       educationLevel: null,
+      skills:[],
     });
   };
   return (
@@ -65,6 +90,9 @@ const [educations] = useState([
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
+
+{/* ADDMISION NUMBER */}
+
             <Form.Group controlId="admissionNumber" className="mb-3">
               <Form.Label>Admission Number</Form.Label>
               <Form.Control
@@ -76,7 +104,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-
+{/* DATE OF ADMISSION */}
             <Form.Group controlId="dateOfAdmission" className="mb-3">
               <Form.Label>Date of Admission</Form.Label>
               <Form.Control
@@ -87,7 +115,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-
+{/* FRIST NAME */}
             <Form.Group controlId="firstName" className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -99,7 +127,7 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-
+{/* LAST NAME */}
             <Form.Group controlId="lastName" className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -111,7 +139,32 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
-            {/* gender */}
+            {/* EMAIL */}
+
+            <Form.Group controlId="email" className="mb-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            {/* PHONE NUMBER */}
+            <Form.Group controlId="phone" className="mb-3">
+              <Form.Label>Mobile</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder="Enter mobile number"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+  {/* GENDER */}
             <Form.Group controlId="gender" className="mb-3">
               <Form.Label>Gender</Form.Label>
               <div>
@@ -150,6 +203,7 @@ const [educations] = useState([
                 </div>
               </div>
             </Form.Group>
+            {/* EDUCATION DROPDOWN */}
             <Form.Group controlId="educationLevel" className="mb-3">
               <Form.Label>Education Level</Form.Label>
               <Form.Select
@@ -160,12 +214,12 @@ const [educations] = useState([
                 required
               >
                 <option value="">Select Education Level</option>
-               {educations.map((education)=><option value={education.id}>{education.name}</option>)}
+               {educations.map((education)=><option value={education.id} key={education.id}>{education.name}</option>)}
                 
                 
               </Form.Select>
             </Form.Group>
-
+{/* RELIGION */}
             <Form.Group controlId="religion" className="mb-3">
               <Form.Label>Religion</Form.Label>
               <Form.Control
@@ -177,11 +231,58 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
+{/* SKILLS */}
+<Form.Group controlId="skills" className="mb-3">
+              <Form.Label>Skills</Form.Label>
+              <div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="checkbox"
+                    label="HTML"
+                    name="skills"
+                    value="HTML"
+                    checked={formData.skills.includes("HTML")}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="checkbox"
+                    label="CSS"
+                    name="skills"
+                    value="CSS"
+                    checked={formData.skills.includes("CSS")}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="d-inline-block mr">
+                  <Form.Check
+                    type="checkbox"
+                    label="React"
+                    name="skills"
+                    value="React"
+                    checked={formData.skills.includes("React")}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="d-inline-block">
+                  <Form.Check
+                    type="checkbox"
+                    label="JavaScript"
+                    name="skills"
+                    value="JavaScript"
+                    checked={formData.skills.includes("JavaScript")}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
+            </Form.Group>
 
+{/* ADDRESS */}
             <Form.Group controlId="address" className="mb-3">
               <Form.Label>Address</Form.Label>
               <Form.Control
-                as="textarea"
+                as="textarea" rows={3}
                 placeholder="Enter address"
                 name="address"
                 value={formData.address}
@@ -189,6 +290,8 @@ const [educations] = useState([
                 required
               />
             </Form.Group>
+
+            {/* SUBMIT & RESET */}
             <div className="float-end">
             <Button variant="secondary" type="reset" className="mr" onClick={handleReset}>
               Reset
