@@ -1,6 +1,10 @@
 .mr{
   margin-right: 15px!important;
 }
+.mb{
+  margin-bottom:20px!important ;
+  
+}
 .sidebar{
   padding-top: 30px;
   height:calc(100vh - 56px);
@@ -19,6 +23,10 @@
 }
 .sidebar .nav-link span{
   padding-left: 15px;
+}
+.scrollable-modal-body {
+  max-height: 800px; /* Set your desired max height */
+  overflow-y: auto;
 }
 @media(max-width:767px){
   .sidebar{

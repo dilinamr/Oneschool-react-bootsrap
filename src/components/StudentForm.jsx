@@ -60,6 +60,7 @@ function StudentForm() {
     // Here, you can handle form submission, send data to an API or perform validation.
     console.log(formData);
     handleClose();
+    handleReset();
   };
   const handleReset = () => {
     // Reset the form data state to its initial values
@@ -74,20 +75,20 @@ function StudentForm() {
       address: "",
       phone: "",
       educationLevel: "",
-      skills: "",
+      skills: [],
     });
   };
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShow} className="float-end">
         Add Student
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Student Admission Form</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="scrollable-modal-body">
           <Form onSubmit={handleSubmit}>
             {/* ADDMISION NUMBER */}
 
@@ -172,6 +173,7 @@ function StudentForm() {
                     label="Male"
                     name="gender"
                     value="male"
+                    id="male-radio"
                     checked={formData.gender === "male"}
                     onChange={handleInputChange}
                     required
@@ -183,6 +185,7 @@ function StudentForm() {
                     label="Female"
                     name="gender"
                     value="female"
+                    id="female-radio"
                     checked={formData.gender === "female"}
                     onChange={handleInputChange}
                     required
@@ -194,6 +197,7 @@ function StudentForm() {
                     label="Other"
                     name="gender"
                     value="other"
+                    id="other-radio"
                     checked={formData.gender === "other"}
                     onChange={handleInputChange}
                     required
@@ -233,47 +237,48 @@ function StudentForm() {
             {/* SKILLS */}
             <Form.Group controlId="skills" className="mb-3">
               <Form.Label>Skills</Form.Label>
-              <div>
-                <div className="d-inline-block mr">
-                  <Form.Check
+              <div className="d-flex">
+                
+                  <Form.Check className="mr"
                     type="checkbox"
                     label="HTML"
-                    name="skills"
+                    name="HTML"
                     value="HTML"
+                    id="html-checkbox"
                     checked={formData.skills.includes("HTML")}
                     onChange={handleInputChange}
                   />
-                </div>
-                <div className="d-inline-block mr">
-                  <Form.Check
+                
+                  <Form.Check className="mr"
                     type="checkbox"
                     label="CSS"
-                    name="skills"
+                    name="CSS"
                     value="CSS"
+                    id="css-checkbox"
                     checked={formData.skills.includes("CSS")}
                     onChange={handleInputChange}
                   />
-                </div>
-                <div className="d-inline-block mr">
-                  <Form.Check
+                
+                  <Form.Check className="mr"
                     type="checkbox"
                     label="React"
-                    name="skills"
+                    name="React"
                     value="React"
+                    id="react-checkbox"
                     checked={formData.skills.includes("React")}
                     onChange={handleInputChange}
                   />
-                </div>
-                <div className="d-inline-block">
-                  <Form.Check
+                
+                  <Form.Check className="mr"
                     type="checkbox"
                     label="JavaScript"
-                    name="skills"
+                    name="JavaScript"
                     value="JavaScript"
+                    id="javascript-checkbox"
                     checked={formData.skills.includes("JavaScript")}
                     onChange={handleInputChange}
                   />
-                </div>
+                
               </div>
             </Form.Group>
 
@@ -292,7 +297,7 @@ function StudentForm() {
             </Form.Group>
 
             {/* SUBMIT & RESET */}
-            <div className="float-end">
+            <div className="float-end mb">
               <Button
                 variant="secondary"
                 type="reset"
@@ -305,6 +310,7 @@ function StudentForm() {
                 Submit
               </Button>
             </div>
+            
           </Form>
         </Modal.Body>
       </Modal>
